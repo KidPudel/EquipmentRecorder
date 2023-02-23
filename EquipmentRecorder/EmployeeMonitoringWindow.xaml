@@ -1,0 +1,32 @@
+﻿<Window x:Class="EquipmentRecorder.EmployeeMonitoringWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Employee Monitoring Window" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Add New Employee" Margin="0 0 10 0" Width="150" Click="AddEmployeeButton_Click"/>
+            <Button Content="Edit Employee Info" Margin="0 0 10 0" Width="150" Click="EditEmployeeButton_Click"/>
+            <Button Content="Delete Employee" Margin="0 0 10 0" Width="150" Click="DeleteEmployeeButton_Click"/>
+        </StackPanel>
+        <DataGrid Name="EmployeesDataGrid" Grid.Row="1" Margin="10" AutoGenerateColumns="False" ItemsSource="{Binding Employees}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Employee Name" Binding="{Binding EmployeeId}" Width="*"/>
+                <DataGridTextColumn Header="Employee ID" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Job Title" Binding="{Binding IdNumber}" Width="*"/>
+                <DataGridTextColumn Header="Division" Binding="{Binding JobTitle}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Division}" Width="*"/>
+                <DataGridTextColumn Header="Date Hired" Binding="{Binding Status}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="10">
+            <Button Content="Equipment Assignment" Margin="0 0 10 0" Width="150" Click="EquipmentAssignment_Click"/>
+            <Button Content="Equipment Updates" Margin="0 0 10 0" Width="150" Click="EquipmentUpdates_Click"/>
+            <Button Content="Generate Reports" Margin="0 0 10 0" Width="150" Click="GenerateReports_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

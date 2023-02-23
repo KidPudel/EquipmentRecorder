@@ -1,0 +1,34 @@
+﻿<Window x:Class="EquipmentRecorder.ResourceUpdatesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Equipment Replacements" Height="500" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Add Replacement" Margin="0 0 10 0"/>
+            <Button Content="Edit Replacement" Margin="0 0 10 0"/>
+            <Button Content="Delete Replacement" Margin="0 0 10 0"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" Margin="10"
+                  ItemsSource="{Binding EquipmentReplacements}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Equipment Name" Binding="{Binding EquipmentName}"/>
+                <DataGridTextColumn Header="Equipment ID" Binding="{Binding EquipmentID}"/>
+                <DataGridTextColumn Header="Last Update Date" Binding="{Binding LastUpdateDate}"/>
+                <DataGridTextColumn Header="Update Frequency" Binding="{Binding UpdateFrequency}"/>
+                <DataGridTextColumn Header="Next Update Date" Binding="{Binding NextUpdateDate}"/>
+                <DataGridTextColumn Header="Replacement Date" Binding="{Binding ReplacementDate}"/>
+                <DataGridTextColumn Header="Replacement Cost" Binding="{Binding ReplacementCost}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Equipment Assignments" Margin="10" Click="EquipmentAssignments_Click"/>
+            <Button Content="Employee Imformation" Margin="10" Click="EmployeeInformation_Click"/>
+            <Button Content="Generate Reports" Margin="10" Click="GenerateReports_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
